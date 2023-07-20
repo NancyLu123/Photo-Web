@@ -5,7 +5,7 @@ import Homepage from "./container/Homepage";
 //網址Routing
 //import About from "./pages/About";
 //import { Switch, Route } from "react-router-dom";
-import "./styles/style.css";
+import "./App.sass";
 
 function App() {
   return (

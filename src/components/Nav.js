@@ -1,4 +1,6 @@
 import React from "react";
+import "./Nav.sass";
+
 //import { Link } from "react-router-dom";
 
 const Nav = () => {

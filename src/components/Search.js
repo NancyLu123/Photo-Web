@@ -1,4 +1,5 @@
 import React from "react";
+import "./Search.sass";
 
 const Search = ({ search, setInput }) => {
   const inputHandler = (e) => {
