@@ -1,7 +1,9 @@
 import React from "react";
 import "./Search.sass";
+import { Input, Space } from "antd";
+const { Search } = Input;
 
-const Search = ({ search, setInput }) => {
+const PhotoSearch = ({ search, setInput }) => {
   const inputHandler = (e) => {
     setInput(e.target.value);
   };
@@ -14,4 +16,4 @@ const Search = ({ search, setInput }) => {
   );
 };
 
-export default Search;
+export default PhotoSearch;
