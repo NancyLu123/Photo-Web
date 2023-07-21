@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Homepage from "./container/Homepage";
 //網址Routing
@@ -10,8 +9,6 @@ import "./App.sass";
 function App() {
   return (
     <div className="App">
-      <Nav />
-
       <Homepage />
 
       {/*<About />*/}

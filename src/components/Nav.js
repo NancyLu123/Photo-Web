@@ -1,23 +1,15 @@
 import React from "react";
+import PhotoSearch from "../components/Search";
 import "./Nav.sass";
 
-//import { Link } from "react-router-dom";
-
-const Nav = () => {
+const Nav = ({ setCurrentSearch }) => {
   return (
-    <nav>
-      <ul>
-        <li className="title">
-          <p>Picture search web</p>
-        </li>
-        <li>
-          <a href="/"></a>
-        </li>
-        <li>
-          <a href="/about"></a>
-        </li>
-      </ul>
-    </nav>
+    <div className="header">
+      <div className="title">Picture search web</div>
+      <div className="search">
+        <PhotoSearch setCurrentSearch={setCurrentSearch} />
+      </div>
+    </div>
   );
 };
 

@@ -1,17 +1,21 @@
 import React from "react";
 import "./Search.sass";
-import { Input, Space } from "antd";
+import { Input } from "antd";
 const { Search } = Input;
 
-const PhotoSearch = ({ search, setInput }) => {
-  const inputHandler = (e) => {
-    setInput(e.target.value);
-  };
-
+const PhotoSearch = ({ setCurrentSearch }) => {
   return (
     <div className="search">
-      <input className="input" onChange={inputHandler} type="text" />
-      <button onClick={search}>Search</button>
+      <Search
+        placeholder="搜尋"
+        allowClear
+        onSearch={(e) => {
+          setCurrentSearch(e);
+        }}
+        style={{
+          width: 300,
+        }}
+      />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Search from "../components/Search";
+import Nav from "../components/Nav";
+import PhotoSearch from "../components/Search";
 import Picture from "../components/Picture";
 import { getPhoto, getSearchPhoto } from "../api/photoApi";
 
 const Homepage = () => {
-  const [input, setInput] = useState("");
   //State指所有圖片知訊
   let [data, setData] = useState(null);
   let [page, setPage] = useState(1);
@@ -29,9 +29,9 @@ const Homepage = () => {
   const morepicture = async () => {
     let dataFetch;
     if (currentSearch === "") {
-      dataFetch = await getPhoto(1);
+      dataFetch = await getPhoto(page);
     } else {
-      dataFetch = await getSearchPhoto(currentSearch, 1);
+      dataFetch = await getSearchPhoto(currentSearch, page);
     }
     setPage(page + 1);
     let parsedData = dataFetch.data.photos;
@@ -45,13 +45,7 @@ const Homepage = () => {
 
   return (
     <div style={{ minHeight: "100vh" }}>
-      <Search
-        search={() => {
-          // JS Closure
-          setCurrentSearch(input);
-        }}
-        setInput={setInput}
-      />
+      <Nav setCurrentSearch={setCurrentSearch} />
       <div className="pictures">
         {data &&
           data.map((d) => {
