@@ -4,8 +4,11 @@ import "./Footer.sass";
 const Footer = () => {
   return (
     <div className="footer">
-      盧廼安&nbsp;&nbsp;&nbsp;&nbsp;
-      <h5> email:nancyapple123123@gmail.com</h5>
+      <div>
+        姓名：盧廼安
+        <br />
+        Email：nancyapple168168@gmail.com
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import "./Nav.sass";
 const Nav = ({ setCurrentSearch }) => {
   return (
     <div className="header">
-      <div className="title">Picture search web</div>
+      <div className="title">Photo search web</div>
       <div className="search">
         <PhotoSearch setCurrentSearch={setCurrentSearch} />
       </div>

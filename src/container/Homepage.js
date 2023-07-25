@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../components/Nav";
-import PhotoSearch from "../components/Search";
+import CarouselPicture from "../components/CarouselPicture";
 import Picture from "../components/Picture";
 import { getPhoto, getSearchPhoto } from "../api/photoApi";
 
@@ -44,17 +44,27 @@ const Homepage = () => {
   }, [currentSearch]);
 
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div>
       <Nav setCurrentSearch={setCurrentSearch} />
-      <div className="pictures">
-        {data &&
-          data.map((d) => {
-            return <Picture data={d} />;
-          })}
-      </div>
+      <div className="content">
+        <CarouselPicture data={data} />
+        <div>
+          <p className="picture-title">
+            {currentSearch === "" || undefined
+              ? "Featured photos"
+              : "Photos related to『" + currentSearch + "』"}
+          </p>
+          <div className="pictures">
+            {data &&
+              data.map((d) => {
+                return <Picture data={d} />;
+              })}
+          </div>
+        </div>
 
-      <div className="morePicture">
-        <button onClick={morepicture}>Load More</button>
+        <div className="morePicture">
+          <button onClick={morepicture}>Load More</button>
+        </div>
       </div>
     </div>
   );

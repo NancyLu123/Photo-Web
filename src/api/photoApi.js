@@ -10,4 +10,7 @@ export const getPhoto = (num) =>
   Photo.get(`curated?page=${num}&per_page=15`, settings);
 
 export const getSearchPhoto = (currentSearch, num) =>
-  Photo.get(`search?query=${currentSearch}&per_page=15&page=${num}`, settings);
+  Photo.get(
+    `search?query=${currentSearch}&per_page=15&page=${num}&locale=zh-TW`,
+    settings
+  );
