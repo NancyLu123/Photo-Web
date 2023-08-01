@@ -1,4 +1,5 @@
 import React from "react";
+import { IntlProvider } from "react-intl";
 import Footer from "./components/Footer";
 import Homepage from "./container/Homepage";
 //網址Routing
@@ -7,14 +8,16 @@ import Homepage from "./container/Homepage";
 import "./App.sass";
 
 function App() {
+  const locale = navigator.language;
+
   return (
-    <div className="App">
-      <Homepage />
+    <IntlProvider locale={locale}>
+      <div className="App">
+        <Homepage />
 
-      {/*<About />*/}
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </IntlProvider>
   );
 }
 
