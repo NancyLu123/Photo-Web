@@ -7,7 +7,7 @@ const PhotoSearch = ({ setCurrentSearch }) => {
   return (
     <div className="search">
       <Search
-        placeholder="搜尋"
+        placeholder="search"
         allowClear
         onSearch={(e) => {
           setCurrentSearch(e);
