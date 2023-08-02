@@ -1,4 +1,4 @@
-import { Photo } from "./Api";
+import { Photo } from "./api";
 const settings = {
   headers: {
     Accept: "application/json",
