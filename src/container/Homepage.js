@@ -50,8 +50,8 @@ const Homepage = () => {
         <div>
           <p className="picture-title">
             {currentSearch === "" || undefined
-              ? "Featured photos"
-              : "Photos related to『" + currentSearch + "』"}
+              ? "精選照片"
+              : "『" + currentSearch + "』相關照片"}
           </p>
           {data.length === 0 ? (
             <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />

@@ -7,7 +7,7 @@ const Footer = () => {
       <div>
         姓名：盧廼安
         <br />
-        Email：nancyapple168168@gmail.com
+        信箱：nancyapple168168@gmail.com
       </div>
     </div>
   );
