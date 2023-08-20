@@ -1,24 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Nav from "../components/Nav";
-import { Empty } from "antd";
 import CarouselPicture from "../components/CarouselPicture";
 import Picture from "../components/Picture";
-import { getPhoto, getSearchPhoto } from "../api/photoApi";
+import { getPhoto } from "../api/photoApi";
+import "./Homepage.sass";
 
 const Homepage = () => {
   //State指所有圖片知訊
   let [data, setData] = useState([]);
   let [page, setPage] = useState(1);
-  const [currentSearch, setCurrentSearch] = useState("");
 
   // 從 pexels api 獲取數據
-  const search = async () => {
+  const getFeaturedPhoto = async () => {
     let dataFetch;
-    if (currentSearch === "") {
-      dataFetch = await getPhoto(1);
-    } else {
-      dataFetch = await getSearchPhoto(currentSearch, 1);
-    }
+    dataFetch = await getPhoto(1);
     let parsedData = dataFetch.data.photos;
     setPage(2);
     setData(parsedData);
@@ -27,11 +21,7 @@ const Homepage = () => {
   // 加載更多圖片
   const morepicture = async () => {
     let dataFetch;
-    if (currentSearch === "") {
-      dataFetch = await getPhoto(page);
-    } else {
-      dataFetch = await getSearchPhoto(currentSearch, page);
-    }
+    dataFetch = await getPhoto(page);
     let parsedData = dataFetch.data.photos;
     setPage(page + 1);
     setData(data.concat(parsedData));
@@ -39,30 +29,21 @@ const Homepage = () => {
 
   // 頁面加載時獲取數據
   useEffect(() => {
-    search();
-  }, [currentSearch]);
+    getFeaturedPhoto();
+  }, []);
 
   return (
     <div>
-      <Nav setCurrentSearch={setCurrentSearch} />
       <div className="content">
         <CarouselPicture />
         <div>
-          <p className="picture-title">
-            {currentSearch === "" || undefined
-              ? "精選照片"
-              : "『" + currentSearch + "』相關照片"}
-          </p>
-          {data.length === 0 ? (
-            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
-          ) : (
-            <div className="pictures">
-              {data &&
-                data.map((d) => {
-                  return <Picture data={d} />;
-                })}
-            </div>
-          )}
+          <p className="picture-title">精選相片</p>
+          <div className="pictures">
+            {data &&
+              data.map((d) => {
+                return <Picture data={d} />;
+              })}
+          </div>
         </div>
         {data.length !== 0 && (
           <div className="morePicture">
