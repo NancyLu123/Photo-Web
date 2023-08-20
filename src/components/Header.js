@@ -1,11 +1,19 @@
 import React from "react";
 import Search from "./Search";
+import { Link } from "react-router-dom";
+import PATH from "../router/pathConstants";
 import "./Header.sass";
 
 const Header = () => {
   return (
     <div className="header">
-      <div className="title">Photo search web</div>
+      <Link
+        to={{
+          pathname: PATH.HOMEPAGE_PHOTO,
+        }}
+      >
+        <div className="title">Photo search web</div>
+      </Link>
       <div className="search">
         <Search />
       </div>
