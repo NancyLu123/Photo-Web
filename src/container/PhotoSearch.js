@@ -14,8 +14,7 @@ const PhotoSearch = () => {
   const query = decodeURI(getUrlString.split("/")[6]);
   // 從 pexels api 獲取數據
   const search = async (query, filterList) => {
-    let dataFetch;
-    dataFetch = await getSearchPhoto(
+    let dataFetch = await getSearchPhoto(
       query,
       1,
       filterList[0],
@@ -55,7 +54,7 @@ const PhotoSearch = () => {
             <div className="pictures">
               {data &&
                 data.map((d) => {
-                  return <Picture data={d} />;
+                  return <Picture data={d} width={"300px"} />;
                 })}
             </div>
           )}

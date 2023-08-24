@@ -1,20 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./Picture.sass";
 
-const Picture = ({ data }) => {
+const Picture = ({ data, width }) => {
   return (
-    <div className="picture">
-      <p>作者：{data.photographer}</p>
-      <div className="imageContainer">
-        <a target="_blank" href={data.src.large}>
+    <Link
+      to={{
+        pathname: `/photo/${data.id}`,
+      }}
+    >
+      <div
+        className="picture"
+        style={{
+          width: width,
+        }}
+      >
+        <div className="imageContainer">
           <img src={data.src.large} alt="" />
-        </a>
+        </div>
       </div>
-      <p>
-        {/*新增頁面*/}
-        <a target="_blank" href={data.src.large}></a>
-      </p>
-    </div>
+    </Link>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CarouselPicture from "../components/CarouselPicture";
 import Picture from "../components/Picture";
-import { getPhoto } from "../api/photoApi";
+import { getCuratedPhotos } from "../api/photoApi";
 import "./Homepage.sass";
 
 const Homepage = () => {
@@ -12,7 +12,7 @@ const Homepage = () => {
   // 從 pexels api 獲取數據
   const getFeaturedPhoto = async () => {
     let dataFetch;
-    dataFetch = await getPhoto(1);
+    dataFetch = await getCuratedPhotos(1);
     let parsedData = dataFetch.data.photos;
     setPage(2);
     setData(parsedData);
@@ -21,7 +21,7 @@ const Homepage = () => {
   // 加載更多圖片
   const morepicture = async () => {
     let dataFetch;
-    dataFetch = await getPhoto(page);
+    dataFetch = await getCuratedPhotos(page);
     let parsedData = dataFetch.data.photos;
     setPage(page + 1);
     setData(data.concat(parsedData));
@@ -33,24 +33,22 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div>
-      <div className="content">
-        <CarouselPicture />
-        <div>
-          <p className="picture-title">精選相片</p>
-          <div className="pictures">
-            {data &&
-              data.map((d) => {
-                return <Picture data={d} />;
-              })}
-          </div>
+    <div className="content">
+      <CarouselPicture />
+      <div>
+        <p className="picture-title">精選相片</p>
+        <div className="pictures">
+          {data &&
+            data.map((d) => {
+              return <Picture data={d} width={"400px"} />;
+            })}
         </div>
-        {data.length !== 0 && (
-          <div className="morePicture">
-            <button onClick={morepicture}>Load More</button>
-          </div>
-        )}
       </div>
+      {data.length !== 0 && (
+        <div className="morePicture">
+          <button onClick={morepicture}>Load More</button>
+        </div>
+      )}
     </div>
   );
 };

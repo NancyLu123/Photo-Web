@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import Before from "../img/before.png";
 import Next from "../img/next.png";
+import { Link } from "react-router-dom";
 import { Carousel } from "antd";
 import "./CarouselPicture.sass";
 
@@ -12,10 +13,16 @@ const CarouselPicture = (data) => {
       <Carousel autoplay ref={clickRef} className="carousel">
         {imgUrl.map((num) => {
           return (
-            <img
-              src={`https://images.pexels.com/photos/${num}/pexels-photo-${num}.jpeg?auto=compress&cs=tinysrgb&h=650&w=940`}
-              alt=""
-            />
+            <Link
+              to={{
+                pathname: `/photo/${num}`,
+              }}
+            >
+              <img
+                src={`https://images.pexels.com/photos/${num}/pexels-photo-${num}.jpeg?auto=compress&cs=tinysrgb&h=650&w=940`}
+                alt=""
+              />
+            </Link>
           );
         })}
       </Carousel>

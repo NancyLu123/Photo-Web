@@ -1,0 +1,104 @@
+.content
+    padding: 8px 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .photo-detail
+        display: flex;
+        justify-content: start;
+        width: 95vw;
+        margin: 17px 0px 0px 35px;
+        .right
+            overflow: hidden;
+            width: 65%;
+            margin-top: 14px;
+            .photo
+                display: flex;
+                justify-content: center;
+                height: 85vh;
+                align-items: center
+                background-color: #F0F0F0;	
+                img
+                    object-fit: cover;
+                    width: 97%;
+                    margin-left: 10px;
+
+        .left
+            width: 35%;
+            padding: 0.5rem 1rem;
+            font-size: 18px;
+            .photo-title
+                color: #272727;
+                font-size: 28px;
+                font-family: cursivex;
+                font-weight: bold;
+
+            p
+             margin-bottom: 10px; 
+            .icon
+                img
+                    width: 3rem;  
+                    margin: 5px;
+            .scrapbook
+                width: 100%;
+                display: flex;
+                justify-content: start;
+                border: solid #D8D8EB;
+                border-radius: 10px;
+                padding: 5px;
+                margin-bottom: 10px;
+                div
+                    font-size: 15px;
+                    width: 82%;
+                    word-break: break-all;
+                    margin: 0px 8px;
+                a
+                    white-space: nowrap;
+                    color: #570011;
+                    padding: 5px;
+
+    .text
+        width: 100%;
+        .related-pictures
+            display: flex;
+            justify-content: space-between;
+        .title
+            width: 60%;
+            font-size: 20px;
+            color: #D8D8EB;
+            margin-bottom: 1rem;
+            word-wrap: break-word;
+
+        .otherPhoto
+            color: #570011;
+            font-size: 2rem;
+            margin: 1rem 0rem;
+        .view
+            color: #0066CC;
+            font-size: 1rem;
+            margin: 35px 10px 0px 10px;
+    .pictures
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+
+@media only screen and(max-width:577px)
+
+    .content
+        .photo-detail
+            align-items: center;
+            flex-direction: column;
+            .right
+                width: 98%;
+                margin-right: 30px;
+                .photo
+                    height: 85vh;
+                    img
+                        object-fit: cover;
+                        width: 95%;
+                        margin: 10px;
+
+            .left
+                width: 98%;
+               
