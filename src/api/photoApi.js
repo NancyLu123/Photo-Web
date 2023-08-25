@@ -11,8 +11,15 @@ export const getPhoto = (id) => Photo.get(`photos/${id}`, settings);
 export const getCuratedPhotos = (num) =>
   Photo.get(`curated?page=${num}&per_page=15`, settings);
 
-export const getSearchPhoto = (query, num, orientation, size, color) =>
+export const getSearchPhoto = (
+  query,
+  num,
+  language,
+  orientation,
+  size,
+  color
+) =>
   Photo.get(
-    `search?query=${query}&orientation=${orientation}&size=${size}&color=${color}&per_page=15&page=${num}&locale=zh-TW`,
+    `search?query=${query}&orientation=${orientation}&size=${size}&color=${color}&per_page=15&page=${num}&locale=${language}`,
     settings
   );

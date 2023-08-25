@@ -9,14 +9,26 @@ const PhotoSearch = () => {
   //State指所有圖片知訊
   let [data, setData] = useState([]);
   let [page, setPage] = useState(1);
+  const [language, setLanguage] = useState("");
   let [filterValue, setFilterValue] = useState([]);
   const getUrlString = window.location.href;
   const query = decodeURI(getUrlString.split("/")[6]);
   // 從 pexels api 獲取數據
   const search = async (query, filterList) => {
+    const chineseRegex = /[\u4e00-\u9fa5]/;
+    let inputeLanguage;
+    if (chineseRegex.test(query)) {
+      inputeLanguage = "zh-TW";
+      setLanguage("zh-TW");
+    } else {
+      inputeLanguage = "en-US";
+      setLanguage("en-US");
+    }
+
     let dataFetch = await getSearchPhoto(
       query,
       1,
+      inputeLanguage,
       filterList[0],
       filterList[1],
       filterList[2]
@@ -30,7 +42,14 @@ const PhotoSearch = () => {
   const morepicture = async () => {
     let dataFetch;
     if (query !== "") {
-      dataFetch = await getSearchPhoto(query, page);
+      dataFetch = await getSearchPhoto(
+        query,
+        page,
+        language,
+        filterValue[0],
+        filterValue[1],
+        filterValue[2]
+      );
     }
     let parsedData = dataFetch.data.photos;
     setPage(page + 1);

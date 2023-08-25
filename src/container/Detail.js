@@ -37,7 +37,7 @@ const Detail = () => {
   };
   const getSearch = async (query, filterList) => {
     let dataFetch;
-    dataFetch = await getSearchPhoto(describe);
+    dataFetch = await getSearchPhoto(describe, 1, "en-US");
     let parsedData = dataFetch.data.photos;
     setData(parsedData);
   };
@@ -95,16 +95,18 @@ const Detail = () => {
         </div>
       </div>
       <div className="text">
-        <div className="related-pictures">
-          <p className="otherPhoto">相關圖片</p>
-          <Link
-            to={{
-              pathname: `/photo/search/${describe}`,
-            }}
-          >
-            <p className="view">檢視全部</p>
-          </Link>
-        </div>
+        {describe !== "" && (
+          <div className="related-pictures">
+            <p className="otherPhoto">相關圖片</p>
+            <Link
+              to={{
+                pathname: `/photo/search/${describe}`,
+              }}
+            >
+              <p className="view">檢視全部</p>
+            </Link>
+          </div>
+        )}
         <hr />
       </div>
       <div className="pictures">
